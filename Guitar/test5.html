@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <script>
+      function generateContract() {
+        var client = document.getElementById("client").value;
+        var clientDBA = document.getElementById("clientDBA").value;
+        var date = document.getElementById("date").value;
+        var activitiesSummary = document.getElementById("activitiesSummary").value;
+        var campaignDates = document.getElementById("campaignDates").value;
+        var totalCost = document.getElementById("totalCost").value;
+        var activities = document.getElementsByClassName("activity");
+        var participatingSKUs = document.getElementsByClassName("participatingSKUs");
+        var activityDates = document.getElementsByClassName("activityDates");
+        var activityCosts = document.getElementsByClassName("activityCost");
+        var activityDescriptions = document.getElementsByClassName("activityDescription");
+        var clientName = document.getElementById("clientName").value;
+
+        var contract =
+"<b>This Statement of Work (this 'SOW')</b><br>" +
+"is being entered into between Flaviar, Inc. (the 'Service Provider' or “Flaviar”) having its principal place of business at 244 Fifth Avenue, Suite F247, New York, NY 10001 and " +
+client +
+" (the “Client” or “" +
+clientDBA +
+"”),<br><br>" +
+"describes the provision of certain services on the terms and conditions described below entered into between the parties as of " +
+date +
+".<br><br>" +
+"<b>Scope of Work:</b><br>" +
+"<ul>" +
+"<li><b>Activities:</b> " + activitiesSummary + "</li>" +
+"<li><b>Dates:</b> " + campaignDates + "</li>" +
+"<li><b>Cost:</b> Total cost is " + totalCost + "</li>" +
+"<li><b>Deliverables:</b> Flaviar commits to providing the following activations as part of the campaign" +
+"<ul>";
+
+for (var i = 0; i < activities.length; i++) {
+  contract += "<li><b>Activity:</b> " + activities[i].value + "</li>" +
+              "<li><b>Participating brand/SKUs:</b> " + participatingSKUs[i].value + "</li>" +
+              "<li><b>Timing:</b> " + activityDates[i].value + "</li>" +
+              "<li><b>Cost:</b> " + activityCosts[i].value + "</li>" +
+              "<li><b>Deliverables:</b> " + activityDescriptions[i].value + "</li>";
+}
+
+contract += "</ul>" +
+"</li>" +
+"</ul>" +
+"<b>Payment:</b><br>" +
+"The estimated overall cost of the campaign is " + totalCost + ". Payment is required 30 days after the issue of the invoice date. <br><br>" +
+"IN WITNESS WHEREOF, the parties have executed this SOW through theirauthorized representatives as of the date first set forth above.<br><br>" +
+"<b>Service Provider:</b><br>" +
+"Flaviar, Inc.<br><br>" +
+"<b>Client:</b><br>" +
+clientName + "<br><br>" +
+"<b>Authorized Signature:</b><br>" +
+"<br><br>" +
+"<b>Printed Name:</b><br>" +
+"<br><br>";
+
+document.getElementById("contract").innerHTML = contract;
+}
+</script>
+
+  </head>
+  <body>
+    <h1> Contract Generator</h1>
+    <form>
+      <label for="client">Client:</label>
+      <input type="text" id="client" name="client" required>
+      <br><br>
+      <label for="clientDBA">Client DBA:</label>
+      <input type="text" id="clientDBA" name="clientDBA" required>
+      <br><br>
+      <label for="date">Date:</label>
+      <input type="text" id="date" name="date" required>
+      <br><br>
+      <label for="activitiesSummary">Activities Summary:</label>
+      <input type="text" id="activitiesSummary" name="activitiesSummary" required>
+      <br><br>
+      <label for="campaignDates">Campaign Dates:</label>
+      <input type="text" id="campaignDates" name="campaignDates" required>
+      <br><br>
+      <label for="totalCost">Total Cost:</label>
+      <input type="text" id="totalCost" name="totalCost" required>
+      <br><br>
+      <h3>Activities:</h3>
+      <div class="activityContainer">
+        <div>
+          <label for="activity">Activity:</label>
+          <input type="text" class="activity" name="activity" required>
+          <br><br>
+          <label for="participatingSKUs">Participating SKUs:</label>
+          <input type="text" class="participatingSKUs" name="participatingSKUs" required>
+          <br><br>
+          <label for="activityDates">Activity Dates:</label>
+          <input type="text" class="activityDates" name="activityDates" required>
+          <br><br>
+          <label for="activityCost">Activity Cost:</label>
+          <input type="text" class="activityCost" name="activityCost" required>
+          <br><br>
+          <label for="activityDescription">Activity Description:</label>
+          <input type="text" class="activityDescription" name="activityDescription" required>
+          <br><br>
+        </div>
+      </div>
+      <button onclick="addActivity()">Add Activity</button>
+      <br><br>
+      <label for="clientName">Client Name:</label>
+      <input type="text" id="clientName" name="clientName" required>
+      <br><br>
+    </form>
+    <button onclick="generateContract()">Generate Contract</button>
+    <br><br>
+	<div id="contract"></div>
+  </body>
+</html>

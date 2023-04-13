@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    margin: 0
+    ;
+}html{
+    font-size: 62.5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background-image: url(guitars-2912447_640.jpeg);
+}
+
+   
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+  }
+
+  .note {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+    background-color: #D1E8E2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+ button {
+    background-color: #C8C8C8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .header {
+    background-color: #6e8e682a;
+    color: white;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    position: relative;
+  }
+  .menu-heade{
+    display: none;
+}
+
+
+  .header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+
+  .nav-links {    
+    display: flex;
+    position: absolute;        
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    padding: 40px;
+    background-color:  #090c08af;    
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.5s, opacity 0.5s;
+  }
+
+  .nav-links a{
+    padding: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+
+  .show-nav-links {
+    height: auto;
+    opacity: 1;
+  }
+
+  .footer {
+    background-color:  #6e8e681f;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footer a {
+    color: rgb(22, 21, 21);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+  }
+ #hamburgerButton:hover{
+    cursor: pointer;
+    background-color: rgba(22, 17, 17, 0.367);
+    color: white;
+ }
+
+ .img-icon{
+  width: 60px;
+  
+ }
+
+@media (max-width: 375px) {
+        .header {
+          flex-direction: column;
+          align-items: center;
+        }
+      
+
+        .hamburger-menu {
+          display: block;
+        }
+        
+        
+      }
+   
+
+
+
+
